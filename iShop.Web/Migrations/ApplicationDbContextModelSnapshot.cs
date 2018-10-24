@@ -423,9 +423,15 @@ namespace iShop.Web.Migrations
                     b.Property<string>("ConcurrencyToken")
                         .IsConcurrencyToken();
 
+                    b.Property<string>("ConsentType");
+
                     b.Property<string>("DisplayName");
 
+                    b.Property<string>("Permissions");
+
                     b.Property<string>("PostLogoutRedirectUris");
+
+                    b.Property<string>("Properties");
 
                     b.Property<string>("RedirectUris");
 
@@ -449,6 +455,8 @@ namespace iShop.Web.Migrations
 
                     b.Property<string>("ConcurrencyToken")
                         .IsConcurrencyToken();
+
+                    b.Property<string>("Properties");
 
                     b.Property<string>("Scopes");
 
@@ -478,10 +486,19 @@ namespace iShop.Web.Migrations
 
                     b.Property<string>("Description");
 
+                    b.Property<string>("DisplayName");
+
                     b.Property<string>("Name")
                         .IsRequired();
 
+                    b.Property<string>("Properties");
+
+                    b.Property<string>("Resources");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("OpenIddictScopes");
                 });
@@ -503,6 +520,8 @@ namespace iShop.Web.Migrations
                     b.Property<DateTimeOffset?>("ExpirationDate");
 
                     b.Property<string>("Payload");
+
+                    b.Property<string>("Properties");
 
                     b.Property<string>("ReferenceId");
 

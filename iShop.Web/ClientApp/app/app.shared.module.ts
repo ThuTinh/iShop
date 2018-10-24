@@ -3,13 +3,16 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { AccordionModule } from 'ngx-bootstrap/accordion';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { RatingModule } from 'ngx-bootstrap/rating';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { PopoverModule } from 'ngx-bootstrap/popover';
-import { TabsModule } from 'ngx-bootstrap/tabs';
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
+
+import { AccordionModule } from 'ngx-bootstrap';
+import { CarouselModule } from 'ngx-bootstrap';
+import { RatingModule } from 'ngx-bootstrap';
+import { ModalModule } from 'ngx-bootstrap';
+import { PopoverModule } from 'ngx-bootstrap';
+import { TabsModule } from 'ngx-bootstrap';
+import { BsDatepickerModule } from 'ngx-bootstrap';
+
 import { DatePipe } from '@angular/common';
 //service 
 import { ProductService } from "./service/product.service";

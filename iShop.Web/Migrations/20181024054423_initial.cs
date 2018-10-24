@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace iShop.Web.Migrations
 {
-    public partial class InitialModel : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +15,7 @@ namespace iShop.Web.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     Detail = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: false),
                     Short = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -31,8 +31,11 @@ namespace iShop.Web.Migrations
                     ClientId = table.Column<string>(nullable: false),
                     ClientSecret = table.Column<string>(nullable: true),
                     ConcurrencyToken = table.Column<string>(nullable: true),
+                    ConsentType = table.Column<string>(nullable: true),
                     DisplayName = table.Column<string>(nullable: true),
+                    Permissions = table.Column<string>(nullable: true),
                     PostLogoutRedirectUris = table.Column<string>(nullable: true),
+                    Properties = table.Column<string>(nullable: true),
                     RedirectUris = table.Column<string>(nullable: true),
                     Type = table.Column<string>(nullable: false)
                 },
@@ -48,7 +51,10 @@ namespace iShop.Web.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     ConcurrencyToken = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: false)
+                    DisplayName = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: false),
+                    Properties = table.Column<string>(nullable: true),
+                    Resources = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -106,9 +112,10 @@ namespace iShop.Web.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
-                    City = table.Column<string>(nullable: false),
+                    City = table.Column<string>(nullable: true),
                     ConcurrencyStamp = table.Column<string>(nullable: true),
                     CreatedDate = table.Column<DateTime>(nullable: false),
+                    District = table.Column<string>(nullable: true),
                     Email = table.Column<string>(maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(nullable: false),
                     FirstName = table.Column<string>(nullable: false),
@@ -121,9 +128,9 @@ namespace iShop.Web.Migrations
                     PhoneNumber = table.Column<string>(nullable: true),
                     PhoneNumberConfirmed = table.Column<bool>(nullable: false),
                     SecurityStamp = table.Column<string>(nullable: true),
-                    Street = table.Column<string>(nullable: false),
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
-                    UserName = table.Column<string>(maxLength: 256, nullable: true)
+                    UserName = table.Column<string>(maxLength: 256, nullable: true),
+                    Ward = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -137,6 +144,7 @@ namespace iShop.Web.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     ApplicationId = table.Column<Guid>(nullable: true),
                     ConcurrencyToken = table.Column<string>(nullable: true),
+                    Properties = table.Column<string>(nullable: true),
                     Scopes = table.Column<string>(nullable: true),
                     Status = table.Column<string>(nullable: false),
                     Subject = table.Column<string>(nullable: false),
@@ -193,7 +201,7 @@ namespace iShop.Web.Migrations
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -267,10 +275,8 @@ namespace iShop.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    InvoiceId = table.Column<Guid>(nullable: false),
                     OrderedDate = table.Column<DateTime>(nullable: false),
-                    ShippingId = table.Column<Guid>(nullable: false),
-                    UserId = table.Column<Guid>(nullable: false)
+                    UserId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -289,7 +295,7 @@ namespace iShop.Web.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     PlacedDate = table.Column<DateTime>(nullable: false),
-                    UserId = table.Column<Guid>(nullable: false)
+                    UserId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -378,6 +384,7 @@ namespace iShop.Web.Migrations
                     CreationDate = table.Column<DateTimeOffset>(nullable: true),
                     ExpirationDate = table.Column<DateTimeOffset>(nullable: true),
                     Payload = table.Column<string>(nullable: true),
+                    Properties = table.Column<string>(nullable: true),
                     ReferenceId = table.Column<string>(nullable: true),
                     Status = table.Column<string>(nullable: true),
                     Subject = table.Column<string>(nullable: false),
@@ -416,7 +423,7 @@ namespace iShop.Web.Migrations
                         column: x => x.OrderId,
                         principalTable: "Orders",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -451,10 +458,13 @@ namespace iShop.Web.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     Charge = table.Column<double>(nullable: false),
                     City = table.Column<string>(nullable: false),
+                    District = table.Column<string>(nullable: false),
                     OrderId = table.Column<Guid>(nullable: false),
+                    PhoneNumber = table.Column<string>(nullable: false),
                     ShippingDate = table.Column<DateTime>(nullable: false),
                     ShippingState = table.Column<int>(nullable: false),
-                    Street = table.Column<string>(nullable: false)
+                    UserName = table.Column<string>(nullable: true),
+                    Ward = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -464,7 +474,7 @@ namespace iShop.Web.Migrations
                         column: x => x.OrderId,
                         principalTable: "Orders",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -508,6 +518,12 @@ namespace iShop.Web.Migrations
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Inventories_ProductId",
+                table: "Inventories",
+                column: "ProductId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Inventories_SupplierId",
                 table: "Inventories",
                 column: "SupplierId");
@@ -528,6 +544,12 @@ namespace iShop.Web.Migrations
                 name: "IX_OpenIddictAuthorizations_ApplicationId",
                 table: "OpenIddictAuthorizations",
                 column: "ApplicationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OpenIddictScopes_Name",
+                table: "OpenIddictScopes",
+                column: "Name",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_OpenIddictTokens_ApplicationId",

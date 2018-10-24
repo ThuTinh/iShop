@@ -12,8 +12,8 @@ using System;
 namespace iShop.Web.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180112172846_ChangeAddressInUserModel")]
-    partial class ChangeAddressInUserModel
+    [Migration("20181024055429_seed-data")]
+    partial class seeddata
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -202,13 +202,9 @@ namespace iShop.Web.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<Guid>("InvoiceId");
-
                     b.Property<DateTime>("OrderedDate");
 
-                    b.Property<Guid>("ShippingId");
-
-                    b.Property<Guid>("UserId");
+                    b.Property<Guid?>("UserId");
 
                     b.HasKey("Id");
 
@@ -240,8 +236,6 @@ namespace iShop.Web.Migrations
                     b.Property<DateTime>("AddedDate");
 
                     b.Property<DateTime>("ExpiredDate");
-
-                    b.Property<Guid>("InventoryId");
 
                     b.Property<string>("Name")
                         .IsRequired();
@@ -280,14 +274,19 @@ namespace iShop.Web.Migrations
                     b.Property<string>("City")
                         .IsRequired();
 
-                    b.Property<string>("Disctrict")
+                    b.Property<string>("District")
                         .IsRequired();
 
                     b.Property<Guid>("OrderId");
 
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired();
+
                     b.Property<DateTime>("ShippingDate");
 
                     b.Property<int>("ShippingState");
+
+                    b.Property<string>("UserName");
 
                     b.Property<string>("Ward")
                         .IsRequired();
@@ -307,7 +306,7 @@ namespace iShop.Web.Migrations
 
                     b.Property<DateTime>("PlacedDate");
 
-                    b.Property<Guid>("UserId");
+                    b.Property<Guid?>("UserId");
 
                     b.HasKey("Id");
 
@@ -425,9 +424,15 @@ namespace iShop.Web.Migrations
                     b.Property<string>("ConcurrencyToken")
                         .IsConcurrencyToken();
 
+                    b.Property<string>("ConsentType");
+
                     b.Property<string>("DisplayName");
 
+                    b.Property<string>("Permissions");
+
                     b.Property<string>("PostLogoutRedirectUris");
+
+                    b.Property<string>("Properties");
 
                     b.Property<string>("RedirectUris");
 
@@ -451,6 +456,8 @@ namespace iShop.Web.Migrations
 
                     b.Property<string>("ConcurrencyToken")
                         .IsConcurrencyToken();
+
+                    b.Property<string>("Properties");
 
                     b.Property<string>("Scopes");
 
@@ -480,10 +487,19 @@ namespace iShop.Web.Migrations
 
                     b.Property<string>("Description");
 
+                    b.Property<string>("DisplayName");
+
                     b.Property<string>("Name")
                         .IsRequired();
 
+                    b.Property<string>("Properties");
+
+                    b.Property<string>("Resources");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("OpenIddictScopes");
                 });
@@ -505,6 +521,8 @@ namespace iShop.Web.Migrations
                     b.Property<DateTimeOffset?>("ExpirationDate");
 
                     b.Property<string>("Payload");
+
+                    b.Property<string>("Properties");
 
                     b.Property<string>("ReferenceId");
 
@@ -568,7 +586,7 @@ namespace iShop.Web.Migrations
                     b.HasOne("iShop.Web.Server.Core.Models.Order", "Order")
                         .WithOne("Invoice")
                         .HasForeignKey("iShop.Web.Server.Core.Models.Invoice", "OrderId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("iShop.Web.Server.Core.Models.Order", b =>
@@ -610,7 +628,7 @@ namespace iShop.Web.Migrations
                     b.HasOne("iShop.Web.Server.Core.Models.Order", "Order")
                         .WithOne("Shipping")
                         .HasForeignKey("iShop.Web.Server.Core.Models.Shipping", "OrderId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("iShop.Web.Server.Core.Models.ShoppingCart", b =>
