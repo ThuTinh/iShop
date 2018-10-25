@@ -17,15 +17,15 @@ namespace iShop.Web.Server.Commons.Extensions
     {
         public static IApplicationBuilder AddCustomCsp(this IApplicationBuilder app)
         {
-            app.UseCsp(csp =>
-            {
-                csp.ByDefaultAllow.FromSelf();
-                csp.AllowScripts.AllowUnsafeEval().FromSelf();
-                csp.AllowStyles.AllowUnsafeInline().FromSelf();
-                csp.AllowImages.From("data:").FromSelf();
-                csp.SetReportOnly();
+            //app.UseCsp(csp =>
+            //{
+            //    csp.ByDefaultAllow.FromSelf();
+            //    csp.AllowScripts.AllowUnsafeEval().FromSelf();
+            //    csp.AllowStyles.AllowUnsafeInline().FromSelf();
+            //    csp.AllowImages.From("data:").FromSelf();
+            //    csp.SetReportOnly();
 
-            });
+            //});
             return app;
         }
 

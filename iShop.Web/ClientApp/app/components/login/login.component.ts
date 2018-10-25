@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit {
                         //output
                         this.onclick.emit(true);
                         this.sharedService.emitChangeToken(t);
-                    console.log(t);
                 });
                  
                     

@@ -1,9 +1,9 @@
 ﻿import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
 //import { CookieService } from 'ngx-cookie-service';
 import { RequestOptions,Http } from '@angular/http';
-import { ProductService } from "../../service/product.service";
-import { Product} from "../../model/Product";
-import { Image } from '../../model/Image';
+import { ProductService } from "../../../service/product.service";
+import { Product} from "../../../model/Product";
+import { Image } from '../../../model/Image';
 
 
 @Component({
@@ -32,12 +32,12 @@ export class AdminEditProductComponent implements OnInit {
 
         this.itemProduct.id = this.product.id;
     }
-   itemProduct:Product;
+    itemProduct: Product = new Product();
     @Output() onclick = new EventEmitter<boolean>();
     @Input('product') product: any;
     minDate = new Date(2017, 5, 10);
     maxDate = new Date(2018, 9, 15);
-    imageEdit:Image;
+    imageEdit?: Image;
   
 
     constructor(private productService: ProductService) {

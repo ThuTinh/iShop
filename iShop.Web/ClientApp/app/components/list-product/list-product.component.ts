@@ -11,20 +11,19 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 })
 export class ListProductComponent {
     @Input('name') name: any;
-    @Input('title') title: string;
+    @Input('title') title?: string;
     products: Product[]=[];
     bought:boolean=false;
     start: number = -1;
     end: number = 3;
     viewProduct: boolean = false;
-    product: Product;
-    modalRef: BsModalRef;
+    product?: Product;
+    modalRef?: BsModalRef;
 
 
     constructor(private productService: ProductService) {
         this.productService.getProducts().subscribe(p => {
             this.products = p;
-            console.log(p);
         } );
     }
   

@@ -63,7 +63,7 @@ export class CardComponent implements  OnInit {
     rate:number=0;
     add: boolean = false;
     isHover:boolean=false;
-    modalRef: BsModalRef;
+    modalRef: BsModalRef = new BsModalRef;
     constructor(private modalService: BsModalService, private sharedService: SharedService) {
         
     }
@@ -77,7 +77,7 @@ export class CardComponent implements  OnInit {
         }
 
         //set local storage
-        let cart: Cart = new Cart(this.product.id, this.quantity);
+        let cart: Cart = new Cart(this.product.id, this.quantity, this.product.price);
         localStorage.setItem(this.product.id, JSON.stringify(cart));
         // close alert 
         this.isHover = false;

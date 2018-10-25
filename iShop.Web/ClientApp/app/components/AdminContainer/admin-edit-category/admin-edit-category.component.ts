@@ -1,8 +1,8 @@
 ﻿import { Component, Output, EventEmitter, Input, OnInit } from "@angular/core";
 
-import { CategoryService } from "../../service/category.service";
+import { CategoryService } from "../../../service/category.service";
 
-import { Category } from "../../model/Category";
+import { Category } from "../../../model/Category";
 
 
 @Component({
@@ -12,17 +12,15 @@ import { Category } from "../../model/Category";
 })
 export class AdminEditcCategoryComponent implements OnInit {
     ngOnInit(): void {
-
         this.category.short = "-1";
-
     } 
 
     constructor(
         private categoryService: CategoryService,
     ) {
     }
- 
-   @Input("category")category: Category = new Category();
+
+    @Input("category") category: Category = new Category;
     @Output() onclick = new EventEmitter<boolean>();
     shorts: any[] = [{ value: "t", name: "Thịt và Trứng" },
         {
@@ -32,7 +30,6 @@ export class AdminEditcCategoryComponent implements OnInit {
 
     editCategories($event: any) {
         $event._submitted = true;
-       
         if ($event.valid) {
             let token = localStorage.getItem("token");
             token

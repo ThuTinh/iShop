@@ -26,17 +26,9 @@ export class DetailProductComponent implements OnInit {
     }
 
     addToCart() {
-
-
         this.onclick.emit(true);
-       
-        let cart :Cart = new Cart(this.product.id, this.quantity);
+        let cart: Cart = new Cart(this.product.id, this.quantity, this.product.price);
         localStorage.setItem(this.product.id, JSON.stringify(cart));
-
-        
-
-
-        
     }
 
     changeValue(isChange: boolean) {

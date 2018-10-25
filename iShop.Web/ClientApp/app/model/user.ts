@@ -7,7 +7,7 @@
      public ward: string;
      public district: string;
      public phoneNumber:string;
-     constructor(firstName: string, lastName: string, password: string, email: string, ward: string, district: string, phoneNumber:string) {
+     constructor(firstName: string="", lastName: string="", password: string="", email: string="", ward: string="", district: string="", phoneNumber:string="",id:string="") {
          this.password = password;
          this.firstName = firstName;
          this.lastName = lastName;
@@ -15,6 +15,7 @@
          this.ward = ward;
          this.district = district;
          this.phoneNumber = phoneNumber;
+         this.id = id;
      }
 
 

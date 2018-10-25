@@ -24,8 +24,7 @@ export class CartComponent implements OnInit {
                 for (var i = 0; i < localStorage.length; ++i) {
                     if (localStorage.key(i) !== "token") {
                         let cart = JSON.parse(String(localStorage.getItem(String(localStorage.key(i)))));
-
-                        this.productService.getProduct(cart.productId).subscribe(p => {
+                        this.productService.getProduct(cart.productId).subscribe(p => { 
                             this.carts.push({
                                 product: p,
                                 quantity: cart.quantity

@@ -55,8 +55,8 @@ export class OrderComponent implements OnInit {
         });
     }
     totalPrice:number=0;
-    logged:boolean=false;
-    user:User;
+    logged: boolean = false;
+    user: User = new User;
     outline: boolean = false;
     city: string = "Đà Lạt";
     ward: string = "";

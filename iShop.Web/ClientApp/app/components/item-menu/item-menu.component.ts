@@ -39,7 +39,6 @@ export class ItemMenuComponent {
     constructor(private categoryService: CategoryService, private sharedService: SharedService) {
         this.categoryService.getCategories().subscribe(c => {
             this.categories = c;
-            console.log(c)
         });
 
         

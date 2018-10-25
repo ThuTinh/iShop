@@ -1,14 +1,14 @@
 ﻿import { Component, Output, EventEmitter, Input, OnInit } from "@angular/core";
 //import { CookieService } from 'ngx-cookie-service';
 import { RequestOptions,Http } from "@angular/http";
-import { ProductService } from "../../service/product.service";
-import { Product} from "../../model/Product";
-import { Supplier } from "../../model/Supplier";
-import { Image } from "../../model/Image";
-import { Category } from "../../model/category";
-import { CategoryService } from "../../service/category.service";
-import { SupplierService } from "../../service/supplier.service";
-import { ImageService } from "../../service/image.service";
+import { ProductService } from "../../../service/product.service";
+import { Product} from "../../../model/Product";
+import { Supplier } from "../../../model/Supplier";
+import { Image } from "../../../model/Image";
+import { Category } from "../../../model/category";
+import { CategoryService } from "../../../service/category.service";
+import { SupplierService } from "../../../service/supplier.service";
+import { ImageService } from "../../../service/image.service";
 
 
 @Component({
@@ -28,23 +28,16 @@ export class AdminCreateProductComponent implements OnInit {
             this.categoriesSelect = c;
             console.log(this.categoriesSelect);
         });
-       // product
-        this.itemProduct = new Product(
-            [], "", 0, "cái", "", "", 0, new Date()
-           
-        );
-
-        
-//        console.log(this.itemProduct);
+      
     } 
 
    
 
-    itemProduct: Product;
-    categoriesSelect: Category[];
+    itemProduct: Product = new Product( [], "", 0, "cái", "", "", 0, new Date());
+    categoriesSelect: Category[]=[];
     categories: Category[]=[];
-    category: number;
-    suppliers:Supplier[];
+    category: number= 0;
+    suppliers:Supplier[] =[];
     image = new Image("/images/add_image.png");
     minDate = new Date(2017, 5, 10);
     maxDate = new Date(2018, 9, 15);

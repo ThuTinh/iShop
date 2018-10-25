@@ -6,18 +6,18 @@ import 'rxjs/add/operator/map'
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
-import { PagerService } from '../../service/page.service';
-import { ProductService } from '../../service/product.service';
-import { OrderService } from '../../service/order.service';
-import { UserService } from '../../service/user.service';
+import { PagerService } from '../../../service/page.service';
+import { ProductService } from '../../../service/product.service';
+import { OrderService } from '../../../service/order.service';
+import { UserService } from '../../../service/user.service';
 @Component({
     
-    selector: 'admin-supplier',
-    templateUrl: './admin-supplier.component.html',
-    styleUrls: ['./admin-supplier.component.css']
+    selector: 'admin-order',
+    templateUrl: './admin-order.component.html',
+    styleUrls: ['./admin-order.component.css']
 })
-export class AdminSupplierComponent implements OnInit {
-    modalRef: BsModalRef;
+export class AdminOrderComponent implements OnInit {
+    modalRef: BsModalRef = new BsModalRef;
     orders:any[]=[];
     constructor(
         private orderService: OrderService,

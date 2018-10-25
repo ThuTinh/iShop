@@ -6,9 +6,9 @@ import 'rxjs/add/operator/map'
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import * as _ from 'underscore';
-import { PagerService } from '../../service/page.service';
-import { ProductService } from '../../service/product.service';
-import { CategoryService } from '../../service/category.service';
+import { PagerService } from '../../../service/page.service';
+import { ProductService } from '../../../service/product.service';
+import { CategoryService } from '../../../service/category.service';
 @Component({
     
     selector: 'admin-category',
@@ -16,8 +16,8 @@ import { CategoryService } from '../../service/category.service';
     styleUrls: ['./admin-category.component.css']
 })
 export class AdminCategoryComponent implements OnInit {
-    modalRef: BsModalRef;
-    categories:any[];
+    modalRef: BsModalRef = new BsModalRef;
+    categories: any[]=[];
     constructor(private http: Http,
      private categoryService:CategoryService,
         private route: ActivatedRoute,

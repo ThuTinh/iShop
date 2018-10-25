@@ -6,8 +6,8 @@ import 'rxjs/add/operator/map'
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import * as _ from 'underscore';
-import { PagerService } from '../../service/page.service';
-import { ProductService } from '../../service/product.service';
+import { PagerService } from '../../../service/page.service';
+import { ProductService } from '../../../service/product.service';
 @Component({
     
     selector: 'admin-product',
@@ -15,7 +15,7 @@ import { ProductService } from '../../service/product.service';
     styleUrls: ['./admin-product.component.css']
 })
 export class AdminProductComponent implements OnInit {
-    modalRef: BsModalRef;
+    modalRef: BsModalRef = new BsModalRef;
     
     constructor(private http: Http,
         private pagerService: PagerService,
@@ -25,13 +25,14 @@ export class AdminProductComponent implements OnInit {
     ) { }
    
     // array of all items to be paged
-    private allItems: any[];
+    private allItems: any[]=[];
   
     // pager object
     pager: any = {};
 
     // paged items
-    pagedItems: any[];
+    // paged items
+    pagedItems: any[]=[];
 
     ngOnInit() {
         this.productService.getProducts().subscribe(p => {

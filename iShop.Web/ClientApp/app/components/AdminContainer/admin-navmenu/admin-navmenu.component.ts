@@ -1,10 +1,10 @@
 import { ChangeDetectorRef, TemplateRef, Component,Output,EventEmitter, Input,OnInit } from '@angular/core';
 
 import { trigger, transition, animate, style, keyframes } from '@angular/animations';
-import { SharedService } from '../../service/shared-service';
+import { SharedService } from '../../../service/shared-service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import { Cart} from "../../model/Cart";
+import { Cart} from "../../../model/Cart";
 import { Observable } from 'rxjs';
 import * as $ from 'jquery';
 @Component({

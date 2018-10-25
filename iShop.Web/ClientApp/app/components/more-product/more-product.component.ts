@@ -22,13 +22,13 @@ export class MoreProductComponent implements OnInit {
     ) { }
    
     // array of all items to be paged
-    private allItems: any[];
-    category: string | null;
+     allItems: any[]=[];
+    category: any = {};
     // pager object
     pager: any = {};
 
     // paged items
-    pagedItems: any[];
+    pagedItems: any[]=[];
 
     ngOnInit() {
         this.productService.getProducts().subscribe(p => {

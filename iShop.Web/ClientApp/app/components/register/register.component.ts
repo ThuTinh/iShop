@@ -19,14 +19,14 @@ import { SharedService } from '../../service/shared-service';
     ]
 })
 export class RegisterComponent {
-    firstName: string;
-    lastName: string;
-    password: string;
-    confirmPassword: string;
-    telephone: string;
-    ward: string;
-    district:string;
-    email: string;
+    firstName: string="";
+    lastName: string="";
+    password: string="";
+    confirmPassword: string="";
+    telephone: string="";
+    ward: string="";
+    district:string="";
+    email: string="";
     result:boolean=false;
     @Output('onclick') onclick = new EventEmitter<boolean>();// when click login then  hidden dialog 
 

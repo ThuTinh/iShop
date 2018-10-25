@@ -44,19 +44,19 @@ import { SlideImageComponent } from './components/slide-image/slide-image.compon
 import { OrderComponent } from './components/order/order.component';
 import { ListProductComponent } from './components/list-product/list-product.component';
 import { ListProductRandomComponent } from './components/list-product-random/list-product-random.component';
-import { AdminComponent } from './components/admin/admin.component';
-import { AdminMenuComponent } from './components/admin-navmenu/admin-navmenu.component';
+import { AdminComponent } from './components/AdminContainer/admin/admin.component';
+import { AdminMenuComponent } from './components/AdminContainer/admin-navmenu/admin-navmenu.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { DashbroadComponent } from './components/dashbroad/dashboard.component';
-import { AdminProductComponent } from './components/admin-product/admin-product.component';
-import { AdminCardComponent } from './components/admin-card/admin-card.component';
-import { AdminEditProductComponent } from './components/admin-edit-product/admin-edit-product.component';
-import { AdminCreateProductComponent } from './components/admin-create-product/admin-create-product.component';
-import { AdminCreatecCategoryComponent } from './components/admin-create-category/admin-create-category.component';
-import { AdminCategoryComponent } from './components/admin-category/admin-category.component';
-import { AdminEditcCategoryComponent } from './components/admin-edit-category/admin-edit-category.component';
-import { AdminOrderComponent } from './components/admin-order/admin-order.component';
-import { AdminSupplierComponent } from './components/admin-supplier/admin-supplier.component';
+import { AdminProductComponent } from './components/AdminContainer/admin-product/admin-product.component';
+import { AdminCardComponent } from './components/AdminContainer/admin-card/admin-card.component';
+import { AdminEditProductComponent } from './components/AdminContainer/admin-edit-product/admin-edit-product.component';
+import { AdminCreateProductComponent } from './components/AdminContainer/admin-create-product/admin-create-product.component';
+import { AdminCreatecCategoryComponent } from './components/AdminContainer/admin-create-category/admin-create-category.component';
+import { AdminCategoryComponent } from './components/AdminContainer/admin-category/admin-category.component';
+import { AdminEditcCategoryComponent } from './components/AdminContainer/admin-edit-category/admin-edit-category.component';
+import { AdminOrderComponent } from './components/AdminContainer/admin-order/admin-order.component';
+import { AdminSupplierComponent } from './components/AdminContainer/admin-supplier/admin-supplier.component';
 
 // custom validation 
 import { EqualValidator } from './components/register/custom-validation';

@@ -1,8 +1,8 @@
 ﻿import { Component, Output, EventEmitter, Input, OnInit } from "@angular/core";
 
-import { CategoryService } from "../../service/category.service";
+import { CategoryService } from "../../../service/category.service";
 
-import { Category } from "../../model/Category";
+import { Category } from "../../../model/Category";
 
 
 @Component({
@@ -28,7 +28,6 @@ export class AdminCreatecCategoryComponent implements OnInit {
 
     createCategory($event: any) {
         $event._submitted = true;
-        console.log(this.category);
         if ($event.valid) {
             let token = localStorage.getItem("token");
             token

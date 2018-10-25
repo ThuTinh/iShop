@@ -23,12 +23,10 @@
             <ul>
                 <li><a> <img class="cart  " src="/images/logo.PNG" alt="Girl" /></a></li>
                 <li> <a>  <input type="text" placeholder="Search" /></a> </li>
-
                 <li class="float-right mr-5" >
                     <a class="text-success" (click)="openShoppingCart();"   routerLink="/shopping-cart">
                         <div>   
                             <span>
-
                                 <img class="cart  " src="/icon/cart.PNG" alt="Cart" />
                                 <span class="quantity badge badge-pill badge-success">
                                     {{totalQuantity||0}}
@@ -105,15 +103,10 @@
             <li><a (click)="closeShoppingCart();" routerLink="/home" >Trang chủ</a></li>
             <li>
                 <item-menu [title]="'Thịt và Trứng'" [short]="'t'" >
-
                 </item-menu>
             </li>
-
-
-
             <li>
                 <item-menu [title]="'Thủy Hải Sản'" [short]="'o'" >
-
                 </item-menu>
             </li>
             <li><a >Về chúng tôi</a></li>

@@ -13,17 +13,11 @@ import 'rxjs/add/observable/combineLatest';
 
 export class HomeComponent implements OnInit {
  
-    ticks = 0;
-    timer: Observable<number>;
+   
     ngOnInit() {
        
     }
 
-    click() {
-        
-        this.timer = Observable.timer(1000, 1000);
-        this.timer.subscribe(t => this.ticks = t);
-    }
     constructor() { }
 
   
