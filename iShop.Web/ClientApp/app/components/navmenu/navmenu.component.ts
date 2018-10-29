@@ -130,12 +130,8 @@ export class NavMenuComponent implements OnInit {
         //        this.router.navigate(['/shopping-cart']);
         this.isShow = true;
         this.carts = [];
-
-
-
     }
     closeShoppingCart() {
-
         this.isShow = false;
     }
     // logout

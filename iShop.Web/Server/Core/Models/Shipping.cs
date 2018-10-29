@@ -6,6 +6,7 @@ namespace iShop.Web.Server.Core.Models
 {
     public class Shipping : EntityBase
     {
+        //server=(localdb)\\mssqllocaldb; database=iShopDb; Integrated Security = SSPI; Trusted_Connection=True;MultipleActiveResultSets=true
         public Guid OrderId { get; set; }
         public Order Order { get; set; }
         public DateTime ShippingDate { get; set; }

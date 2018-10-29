@@ -41,7 +41,7 @@ export class AdminCreateProductComponent implements OnInit {
     image = new Image("/images/add_image.png");
     minDate = new Date(2017, 5, 10);
     maxDate = new Date(2018, 9, 15);
-  imageEvent:any;
+    imageEvent: any = {};
     @Output() onclick = new EventEmitter<boolean>();
    
 

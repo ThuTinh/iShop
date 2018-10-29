@@ -1,116 +1,113 @@
-﻿
-
-
-<body>
-
-<!--    header-->
-    <div class="background">
-        <span>
+﻿<body>
+    <!--    header-->
+    <div class="background d-flex">
+        <div class="mr-auto">
             <span>Đặt hàng qua số điện thoại | </span>
-            <span class="green"><a>01665240627</a> </span>
-        </span>
-        <div class="language">
-            <span><button  *ngIf="isAdmin" routerLink="/admin" class="btn btn-success">Quản Lý</button></span>
+            <strong class="text-success"><a>01665240627</a> </strong>
+        </div>
+        <div>
+            <!--<span><button  *ngIf="isAdmin" routerLink="/admin" class="btn btn-success">Quản Lý</button></span>-->
             <span>Tiếng việt</span>
             <span>Trợ giúp?</span>
         </div>
     </div>
     <div>
 
-       
+
         <!--         nav search-->
-        <div class="search">
-            <ul>
-                <li><a> <img class="cart  " src="/images/logo.PNG" alt="Girl" /></a></li>
-                <li> <a>  <input type="text" placeholder="Search" /></a> </li>
-                <li class="float-right mr-5" >
-                    <a class="text-success" (click)="openShoppingCart();"   routerLink="/shopping-cart">
-                        <div>   
-                            <span>
-                                <img class="cart  " src="/icon/cart.PNG" alt="Cart" />
-                                <span class="quantity badge badge-pill badge-success">
-                                    {{totalQuantity||0}}
-                                </span>
-                            </span>
-                            <div style="float: right">
+        <div class="d-flex align-items-center w-100 pl-5 pr-5 ">
+            <div><a> <img class="logo p-2" src="/images/logo.PNG" alt="Girl" /></a></div>
+            <div> <a>  <input type="text" class="form-control search" placeholder="Search" /></a> </div>
+            <div class="ml-auto">
+                <div class=" d-flex align-items-center ">
+                    <div class="mr-4">
+                        <div class="dropdown">
+                            <a class="text-success " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div>
+                                    <img class="cart" src="/image/user.png" alt="User " />
+                                    <div class="float-right " style="padding: 10px;">
+                                        <div style="margin-top: -10px;">Xin chào!</div>
+                                        <div class="mt-1">{{userName}}</div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu pos " id="menuLogin">
+                                <div class="card">
+                                    <div *ngIf="!logged">
+                                        <a class="dropdown-item" (click)="openModal(login)">Đăng nhập</a>
+                                        <ng-template #login>
+                                            <div class="modal-header" style="background-color: rgb(245,245,245) ">
+                                                <div class="text-center w-100">   <h4 class="  text-success mt-3" style="font-family: ravie">HAI LÚA</h4></div>
+                                                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <login (onclick)="exitLogin($event)"></login>
 
-                                <div>Đơn hàng</div>
-                                <div class="pt-1">{{totalPrice||0}} đồng</div>
+                                        </ng-template>
+                                        <a class="dropdown-item" (click)="openModal(register)">Đăng kí</a>
+                                        <ng-template #register>
+                                            <div class="modal-header" style="background-color: rgb(245,245,245) ">
+                                                <div class="text-center w-100">   <h4 class="  text-success mt-3" style="font-family: ravie">HAI LÚA</h4></div>
+                                                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <register (onclick)="exitLogin($event)"></register>
+                                        </ng-template>
+                                    </div>
+                                    <div *ngIf="logged">
+                                        <a class="dropdown-item">Giỏ hàng của tôi</a>
+                                        <a class="dropdown-item" on-click="logout();">Đăng Xuất</a>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
-                       
-                    </a>
-                    <div class="display " >
-                        <div [class.notShow]="isShow">
-                            <cart ></cart>
-                        </div>
-
                     </div>
-                </li>
-                <li class="float-right mr-4">
-                    <div class="dropdown">
-                        <a class="text-success " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="mini-shopingcart d-flex align-items-center" style="height:80px;">
+                        <a class="text-success" (click)="openShoppingCart();" routerLink="/shopping-cart">
                             <div>
-                                <img class="cart" src="/image/user.png" alt="User " />
-                                <div class="float-right " style="padding: 10px;">
-                                    <div style="margin-top: -10px;">Xin chào!</div>
-                                    <div class="mt-1">{{userName}}</div>
+                                <span>
+                                    <img class="cart  " src="/icon/cart.PNG" alt="Cart" />
+                                    <span class="quantity badge badge-pill badge-success">
+                                        {{totalQuantity||0}}
+                                    </span>
+                                </span>
+                                <div style="float: right">
+
+                                    <div>Đơn hàng</div>
+                                    <div class="pt-1">{{totalPrice||0}} đồng</div>
                                 </div>
                             </div>
+
                         </a>
-                        <div class="dropdown-menu pos " id="menuLogin">
-                            <div class="card">
-                                <div *ngIf="!logged">
-                                    <a class="dropdown-item" (click)="openModal(login)">Đăng nhập</a>
-                                    <ng-template #login>
-                                        <div class="modal-header" style="background-color: rgb(245,245,245) ">
-                                            <div class="text-center w-100">   <h4 class="  text-success mt-3" style="font-family: ravie">HAI LÚA</h4></div>
-                                            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <login (onclick)="exitLogin($event)"></login>
-
-                                    </ng-template>
-                                    <a class="dropdown-item" (click)="openModal(register)">Đăng kí</a>
-                                    <ng-template #register>
-                                        <div class="modal-header" style="background-color: rgb(245,245,245) ">
-                                            <div class="text-center w-100">   <h4 class="  text-success mt-3" style="font-family: ravie">HAI LÚA</h4></div>
-                                            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <register (onclick)="exitLogin($event)"></register>
-                                    </ng-template>
-                                </div>
-                                <div *ngIf="logged" >
-                                    <a class="dropdown-item">Giỏ hàng của tôi</a>
-                                    <a class="dropdown-item" on-click="logout();">Đăng Xuất</a>
-                                </div>
+                        <div class="display" >
+                            <div [class.notShow]="isShow">
+                                <cart></cart>
                             </div>
-
                         </div>
                     </div>
-                </li>
-          
-            </ul>
+                </div>
+            </div>
         </div>
     </div>
+    
 
-<!--    nav menu product-->
+    <!--    nav menu product-->
     <div class="nav">
         <ul>
-            <li><a (click)="closeShoppingCart();" routerLink="/home" >Trang chủ</a></li>
+            <li><a (click)="closeShoppingCart();" routerLink="/home">Trang chủ</a></li>
             <li>
-                <item-menu [title]="'Thịt và Trứng'" [short]="'t'" >
+                <item-menu [title]="'Thịt và Trứng'" [short]="'t'">
                 </item-menu>
             </li>
             <li>
-                <item-menu [title]="'Thủy Hải Sản'" [short]="'o'" >
+                <item-menu [title]="'Thủy Hải Sản'" [short]="'o'">
                 </item-menu>
             </li>
-            <li><a >Về chúng tôi</a></li>
-            <li><a >Liên hệ</a></li>
+            <li><a>Về chúng tôi</a></li>
+            <li><a>Liên hệ</a></li>
             <li class="float-right"><a routerLink="/home"><img style="height: 20px;" src="/image/fb.png" alt="facebook icon" /></a></li>
             <li class="float-right"><a routerLink="/home"><img style="height: 20px;" src="/image/fb.png" alt="facebook icon" /></a></li>
             <li class="float-right"><a routerLink="/home"><img style="height: 20px;" src="/image/fb.png" alt="facebook icon" /></a></li>

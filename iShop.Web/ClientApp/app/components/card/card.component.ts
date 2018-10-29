@@ -5,7 +5,7 @@ import { SharedService } from '../../service/shared-service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { Cart} from "../../model/Cart";
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'card',
@@ -17,7 +17,6 @@ import { Cart} from "../../model/Cart";
             transition(':enter', animate('2000ms ease-in', keyframes([
                 style({ opacity: 0, transform: 'translateY(-100px)', offset: 0 }),
                 style({ opacity: 1, transform: 'translateY(0px)', offset: 0.5 }),
-
             ])))
             ,
 
@@ -44,8 +43,6 @@ import { Cart} from "../../model/Cart";
             ])))
 
         ])]
-    
-
 })
 export class CardComponent implements  OnInit {
     ngOnInit(): void {
@@ -54,8 +51,6 @@ export class CardComponent implements  OnInit {
                 this.sharedService.emitChange(false);
             },
             1000);
-      
-      
     }
 
     @Input('product') product: any;
@@ -64,13 +59,13 @@ export class CardComponent implements  OnInit {
     add: boolean = false;
     isHover:boolean=false;
     modalRef: BsModalRef = new BsModalRef;
-    constructor(private modalService: BsModalService, private sharedService: SharedService) {
+    constructor(private modalService: BsModalService, private sharedService: SharedService, private toastr: ToastrService) {
         
     }
     addToCart() {
         this.add = true;
         var currentCart = JSON.parse(String(localStorage.getItem(this.product.id)));
-       
+        this.toastr.success('Hello world!', 'Toastr fun!');
         if (currentCart) {
             this.quantity = currentCart.quantity;
             this.quantity++;

@@ -23,7 +23,7 @@
         </thead>
         <tbody>
            
-                <tr *ngFor="let cart of carts |fill:-1:a ; let i=index">
+                <tr *ngFor="let cart of carts  ; let i=index">
                     <th scope="row">{{i}}</th>
                     <td>
                         <img class="rounded-circle " style="width: 50px; height: 50px;" src="/images/{{cart.product.images[0].fileName}}"/>

@@ -10,7 +10,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
     styleUrls: ['./list-product-random.component.css']
 })
 export class ListProductRandomComponent {
-    @Input('name') name: any;
+    @Input('name') name: any = {};
     @Input('title') title: string="";
     products: Product[]=[];
     bought:boolean=false;
