@@ -128,7 +128,11 @@ import { ToastrModule } from 'ngx-toastr';
         FormsModule,
 
         //lib outside 
-        ToastrModule.forRoot(),
+        ToastrModule.forRoot({
+            timeOut: 1000,
+            positionClass: 'toast-top-right',
+            preventDuplicates: true
+        }),
 
         //path
         RouterModule.forRoot([

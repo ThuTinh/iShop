@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, TemplateRef, Component,Output,EventEmitter, Input,OnInit } from '@angular/core';
+﻿import { ChangeDetectorRef, TemplateRef, Component,Output,EventEmitter, Input,OnInit } from '@angular/core';
 
 import { trigger, transition, animate, style, keyframes } from '@angular/animations';
 import { SharedService } from '../../service/shared-service';
@@ -65,7 +65,7 @@ export class CardComponent implements  OnInit {
     addToCart() {
         this.add = true;
         var currentCart = JSON.parse(String(localStorage.getItem(this.product.id)));
-        this.toastr.success('Hello world!', 'Toastr fun!');
+        this.toastr.success(' Bạn đã thêm vào giỏ hàng thành công!', 'Chúc mừng');
         if (currentCart) {
             this.quantity = currentCart.quantity;
             this.quantity++;
