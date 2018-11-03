@@ -65,6 +65,7 @@
     "jsonwebtoken": "^8.1.0",
     "ngx-bootstrap": "^2.0.5",
     "ngx-cookie-service": "^1.0.10",
+    "ngx-toastr": "^6.4.1-beta.0",
     "tether": "^1.4.3",
     "underscore": "^1.8.3"
   }

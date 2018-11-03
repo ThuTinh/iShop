@@ -66,6 +66,7 @@ import { FilterPipe } from './components/custom-pipe/filter-pipe';
 import { FillPipe } from './components/custom-pipe/fill-pipe';
 import { FilterCategoryPipe } from './components/custom-pipe/filter-category-pipe';
 
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -125,7 +126,14 @@ import { FilterCategoryPipe } from './components/custom-pipe/filter-category-pip
         CommonModule,
         HttpModule,
         FormsModule,
-      
+
+        //lib outside 
+        ToastrModule.forRoot({
+            timeOut: 1000,
+            positionClass: 'toast-top-right',
+            preventDuplicates: true
+        }),
+
         //path
         RouterModule.forRoot([
             {

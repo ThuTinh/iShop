@@ -9,14 +9,15 @@ import { SharedService } from '../../service/shared-service';
 })
 export class ShoppingCartComponent {
     carts: any[] = [];
-    totalPrice:number=0;
+    totalPrice: number = 0;
+    a: number = localStorage.length;
     constructor(private route: ActivatedRoute,
         private productService: ProductService,
         private sharedService: SharedService,
         private router: Router) {
         this.carts = [];
 
-       
+      
         for (var i = 0; i < localStorage.length; ++i) {
 
             if (localStorage.key(i) !== "token") {

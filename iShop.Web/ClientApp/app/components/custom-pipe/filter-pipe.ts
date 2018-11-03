@@ -11,8 +11,7 @@ export class FilterPipe implements PipeTransform {
         if (!items || !filter) {
             return items;
         }
-       
-        filter = filter.toLowerCase();
+        filter = (filter+"").toLowerCase();
         if (filter === "t" || filter === "o") 
             return items.filter((p, i: any, ps: any) => {
                 let categories = p.categories.filter((c: any) => c.short.toLowerCase().indexOf(filter) !== -1);

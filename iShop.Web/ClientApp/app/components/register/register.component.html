@@ -1,10 +1,5 @@
 ﻿
-
 <div class="container-child  " >
-
-   
-
-
     <div >
         <div *ngIf="result" class="text-danger text-center"><small>*Email đã tồn tại*</small></div>
         <div class=" pt-3 pr-5 pl-5">
@@ -145,13 +140,13 @@
                         <div class="alert alert-danger" *ngIf="( District.touched || f.submitted) && District.errors?.required"> *Bắt buộc* </div>
                     </div>
                 </div>
-                <div class="text-center">  <button class="btn btn-info col-6 " on-click="register(f);">Đăng Ký</button></div>
+                <div class="text-center">  <button class="btn btn-info col-6 " (click)="register(f);">Đăng Ký</button></div>
                 <div class="d-inline-block w-100 mt-2 mb-2" >
                     <div class="float-left   mt-3" style="height: 1px; width: 100px;background-color: slategrey"></div>
                     <div class="text-center float-left w-50 "><small> Hoặc</small> </div>
                     <div class="float-right   mt-3" style="height: 1px; width: 100px;background-color: slategrey"></div>
                 </div>
-                <div class="text-center mt-1"> <button class="btn btn-success col-6" (click)="click(f)" >Facebook</button></div>  
+                <div class="text-center mt-1"> <button class="btn btn-success col-6"  >Facebook</button></div>  
                 <div class="text-center mt-1 mb-2"><button class="btn btn-warning col-6">Google</button></div>  
             </form>
         </div>
