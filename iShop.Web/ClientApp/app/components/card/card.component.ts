@@ -82,7 +82,7 @@ export class CardComponent implements  OnInit {
         // call shared service 
         this.sharedService.emitChange(true);
         var a = localStorage.getItem(this.product.id);
-        var b = JSON.parse(String(a));
+        //var b = JSON.parse(String(a));
 
         
     }

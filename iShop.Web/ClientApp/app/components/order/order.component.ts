@@ -14,24 +14,31 @@ import { Router } from '@angular/router';
     styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
+
+    totalPrice: number = 0;
+    logged: boolean = false;
+    user: any = {};
+    outline: boolean = false;
+    city: string = "Đà Lạt";
+    ward: string = "";
+    district: string = "";
+    name: string = "";
+    telephone: string = "";
+    carts: any[] = [];
+
+
     ngOnInit(): void {
 
         // info user 
         let token = localStorage.getItem("token");
-        if(token)
-        this.userService.info(token).subscribe(u => {
+        if (token)
+            this.userService.info(token).subscribe(u => {
                 this.user = u;
                 this.logged = true;
                 this.outline = true;
-         
             },
-            err => this.logged = false
-
-        );
-      
-
-
-
+                err => this.logged = false
+            );
         // load list product;
         for (var i = 0; i < localStorage.length; ++i) {
             //get local storage 
@@ -42,8 +49,6 @@ export class OrderComponent implements OnInit {
                     this.totalPrice += p.price * carts.quantity;
                 });
             }
-
-
         }
 
 
@@ -54,102 +59,83 @@ export class OrderComponent implements OnInit {
             this.outline = true;
         });
     }
-    totalPrice:number=0;
-    logged: boolean = false;
-    user: User = new User;
-    outline: boolean = false;
-    city: string = "Đà Lạt";
-    ward: string = "";
-    district: string = "";
-    name: string = "";
-    telephone: string = "";
-    carts: any[]=[];
-    chooseAddress(outline:boolean) {
+
+    chooseAddress(outline: boolean) {
         this.outline = outline;
     }
 
-   
+
     constructor(private userService: UserService,
         private productService: ProductService,
         private sharedService: SharedService,
         private orderService: OrderService,
         private shippingService: ShippingService,
-        private router: Router,
+        private router: Router
 
     ) {
-       
+
     }
 
 
     book($event: any) {
-        $event._submitted = true;
-
-
-        if ($event.valid&&this.outline===false) {
+        //&& this.outline === false
+        if ( this.outline === false)  $event._submitted = true;
+        if (!$event.valid && this.outline === false) {
             return;
         }
-
-
+        console.log(this.user)
         if (this.logged) {
-             this.orderService.createOrder(this.user.id).subscribe(o => {
-                 let shipping: Shipping;;
-                 if (this.outline)
-                     shipping = new Shipping(0,
-                         this.totalPrice,
-                         this.user.ward,
-                         this.user.district,
-                         "Đà Lạt",
-                         this.user.firstName + " " + this.user.lastName,
-                         this.user.phoneNumber,
-                         o.id);
-                 else {
-                     shipping = new Shipping(0,
-                         this.totalPrice,
-                         this.ward,
-                         this.district,
-                         "Đà Lạt",
-                         this.name,
-                         this.telephone,
-                         o.id);
-                 }
-                 this.shippingService.createShipping(shipping).subscribe(p => { this.router.navigate(['/home']);},
-                     err => console.log(err));
-             });
-          
-            } else {
-                this.orderService.createOrder().subscribe(o => {
-                    let shipping: Shipping;;
-                        if (this.outline)
-                            shipping = new Shipping(0,
-                                this.totalPrice,
-                                this.user.ward,
-                                this.user.district,
-                                "Đà Lạt",
-                                this.user.firstName + " " + this.user.lastName,
-                                this.user.phoneNumber,
-                               o.id);
-                        else {
-                            shipping = new Shipping(0,
-                                this.totalPrice,
-                                this.ward,
-                                this.district,
-                                "Đà Lạt",
-                                this.name,
-                                this.telephone,
-                                o.id);
-                        }
-                        this.shippingService.createShipping(shipping).subscribe(p => { this.router.navigate(['/home']); },
-                            err => console.log(err));
-                    }
-                    );
-            
-         
-          
+            this.orderService.createOrder(this.user.userInfo.id).subscribe(o => {
+                var shipping: Shipping;
+                if (this.outline)
+                    shipping = new Shipping(0,
+                        this.totalPrice,
+                        this.user.userInfo.ward,
+                        this.user.userInfo.district,
+                        "Đà Lạt",
+                        this.user.userInfo.firstName + " " + this.user.userInfo.lastName,
+                        this.user.userInfo.phoneNumber,
+                        o.id);
+                else {
+                    shipping = new Shipping(0,
+                        this.totalPrice,
+                        this.ward,
+                        this.district,
+                        "Đà Lạt",
+                        this.name,
+                        this.telephone,
+                        o.id);
+                }
+                this.shippingService.createShipping(shipping).subscribe(p => { this.router.navigate(['/home']); },
+                    err => console.log(err));
+            });
 
-
+        } else {
+            this.orderService.createOrder().subscribe(o => {
+                var shipping: Shipping;;
+                if (this.outline)
+                    shipping = new Shipping(0,
+                        this.totalPrice,
+                        this.user.userInfo.ward,
+                        this.user.userInfo.district,
+                        "Đà Lạt",
+                        this.user.userInfo.firstName + " " + this.user.userInfo.lastName,
+                        this.user.userInfo.phoneNumber,
+                        o.id);
+                else {
+                    shipping = new Shipping(0,
+                        this.totalPrice,
+                        this.ward,
+                        this.district,
+                        "Đà Lạt",
+                        this.name,
+                        this.telephone,
+                        o.id);
+                }
+                this.shippingService.createShipping(shipping).subscribe(p => { this.router.navigate(['/home']); },
+                    err => console.log(err));
+            }
+            );
         }
-
-
     }
-    
 }

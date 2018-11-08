@@ -31,7 +31,7 @@ namespace iShop.Web.Server.APIs
         }
 
         // GET
-        [Authorize(Policy = ApplicationConstants.PolicyName.SuperUsers)]
+        //[Authorize(Policy = ApplicationConstants.PolicyName.SuperUsers)]
         [HttpGet]
         public async Task<IActionResult> Get()
         {

@@ -67,7 +67,7 @@ import { FillPipe } from './components/custom-pipe/fill-pipe';
 import { FilterCategoryPipe } from './components/custom-pipe/filter-category-pipe';
 
 import { ToastrModule } from 'ngx-toastr';
-
+import { SlickModule } from 'ngx-slick';
 
 @NgModule({
     declarations: [
@@ -120,7 +120,7 @@ import { ToastrModule } from 'ngx-toastr';
         PopoverModule.forRoot(),
         TabsModule.forRoot(),
         BsDatepickerModule.forRoot(),
-
+        
         //angular 
         BrowserAnimationsModule,
         CommonModule,
@@ -128,8 +128,9 @@ import { ToastrModule } from 'ngx-toastr';
         FormsModule,
 
         //lib outside 
+        SlickModule.forRoot(),
         ToastrModule.forRoot({
-            timeOut: 1000,
+            timeOut: 1500,
             positionClass: 'toast-top-right',
             preventDuplicates: true
         }),

@@ -14,7 +14,7 @@ import { ProductService } from '../../service/product.service';
     styleUrls: ['./more-product.component.css']
 })
 export class MoreProductComponent implements OnInit {
-    constructor(private http: Http,
+    constructor(
         private pagerService: PagerService,
         private productService: ProductService,
         private route: ActivatedRoute,

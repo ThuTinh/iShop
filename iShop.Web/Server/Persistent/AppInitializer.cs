@@ -227,6 +227,7 @@ namespace iShop.Web.Server.Persistent
                     product3,
                     product5,
                     product4
+                  
                 };
 
                 await _context.AddRangeAsync(products);

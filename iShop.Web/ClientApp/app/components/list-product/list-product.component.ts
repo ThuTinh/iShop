@@ -19,7 +19,14 @@ export class ListProductComponent {
     viewProduct: boolean = false;
     product?: Product;
     modalRef?: BsModalRef;
-
+    slideConfig = {
+        "slidesToShow": 3,
+        "slidesToScroll": 3,
+        "enabled": true,
+        "autoplay": true,
+        "draggable": false,
+        "autoplaySpeed": 3000
+    };
 
     constructor(private productService: ProductService) {
         this.productService.getProducts().subscribe(p => {
@@ -28,23 +35,10 @@ export class ListProductComponent {
     }
   
 
-   
-    //next button
-    next() {
-        if (this.end < 10) {
-            this.start += 2;
-            this.end += 2;
-            if (this.end === 9) {
-                this.viewProduct = true;
-            }
-        }
-    }
-    //previous button
-    pre() {
-        if (this.start > 1) {
-            this.start -= 2;
-            this.end -= 2;
-        }
+
+  
+    afterChange(e:any) {
+        console.log('afterChange');
     }
 
   

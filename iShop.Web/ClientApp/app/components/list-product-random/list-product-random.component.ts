@@ -14,8 +14,14 @@ export class ListProductRandomComponent {
     @Input('title') title: string="";
     products: Product[]=[];
     bought:boolean=false;
-    start: number = -1;
-    end: number = 3;
+    slideConfig = {
+        "slidesToShow": 3,
+        "slidesToScroll": 3,
+        "enabled": true,
+        "autoplay": true,
+        "draggable": false,
+        "autoplaySpeed": 2000
+    };
     viewProduct: boolean = false;
     product: Product = new Product;
     modalRef: BsModalRef = new BsModalRef;
@@ -23,34 +29,11 @@ export class ListProductRandomComponent {
 
     constructor(private productService: ProductService) {
         this.productService.getProducts().subscribe((p) => {
-            
-            for (var i = 0; i < 4; i++) {
-                let index = Math.floor(Math.random() * (p.length));
-              this.products.push(p[index]);
-            }
+            this.products = p;
         });
 
     }
   
 
-   
-    //next button
-    next() {
-        if (this.end < 10) {
-            this.start += 2;
-            this.end += 2;
-            if (this.end === 9) {
-                this.viewProduct = true;
-            }
-        }
-    }
-    //previous button
-    pre() {
-        if (this.start > 1) {
-            this.start -= 2;
-            this.end -= 2;
-        }
-    }
-
-  
+ 
 }
