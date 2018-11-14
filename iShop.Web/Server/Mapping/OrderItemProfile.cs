@@ -10,6 +10,8 @@ namespace iShop.Web.Server.Mapping
         {
             CreateMap<OrderedItem, OrderedItemResource>();
             CreateMap<OrderedItemResource, OrderedItem>();
+            CreateMap<OrderedItem, TitleOrderItemResource>();
+            CreateMap<TitleOrderItemResource, OrderedItem>();
         }
     }
 }

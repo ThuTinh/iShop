@@ -81,6 +81,7 @@
     <None Remove="ClientApp\app\model\Image.ts" />
     <None Remove="ClientApp\app\model\order.ts" />
     <None Remove="ClientApp\app\model\product.ts" />
+    <None Remove="ClientApp\app\model\ProductEdit.ts" />
     <None Remove="ClientApp\app\model\shoppingCart.ts" />
     <None Remove="ClientApp\app\model\Supplier.ts" />
     <None Remove="ClientApp\app\model\user.ts" />
@@ -101,6 +102,7 @@
     <TypeScriptCompile Include="ClientApp\app\components\custom-pipe\filter-pipe.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\footer\footer.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\register\custom-validation.ts" />
+    <TypeScriptCompile Include="ClientApp\app\model\ProductEdit.ts" />
     <TypeScriptCompile Include="ClientApp\app\model\Supplier.ts" />
     <TypeScriptCompile Include="ClientApp\app\model\Product.ts" />
     <TypeScriptCompile Include="ClientApp\app\model\Category.ts" />

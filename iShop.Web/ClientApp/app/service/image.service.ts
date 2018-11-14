@@ -43,12 +43,12 @@ export class ImageService {
                         headers: {
                             //USE credentials mode
                             Accept: 'application/json',
-                            'Content-Type':'multipart/form-data',
+                            //'Content-Type':'multipart/form-data',
                             withCredentials: true,
                             'Authorization': 'Bearer ' + token
                         }
                     }) as any)
-                .map(res => res.json()).catch(error => Observable.throw(error))
+                .map(res => res.json())
                 .subscribe(
                     data => console.log('success'),
                     error => console.log(error)

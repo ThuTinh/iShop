@@ -83,7 +83,7 @@ export class OrderComponent implements OnInit {
         if (!$event.valid && this.outline === false) {
             return;
         }
-        console.log(this.user)
+        
         if (this.logged) {
             this.orderService.createOrder(this.user.userInfo.id).subscribe(o => {
                 var shipping: Shipping;
@@ -95,7 +95,7 @@ export class OrderComponent implements OnInit {
                         "Đà Lạt",
                         this.user.userInfo.firstName + " " + this.user.userInfo.lastName,
                         this.user.userInfo.phoneNumber,
-                        o.id);
+                        o);
                 else {
                     shipping = new Shipping(0,
                         this.totalPrice,
@@ -104,7 +104,7 @@ export class OrderComponent implements OnInit {
                         "Đà Lạt",
                         this.name,
                         this.telephone,
-                        o.id);
+                        o);
                 }
                 this.shippingService.createShipping(shipping).subscribe(p => { this.router.navigate(['/home']); },
                     err => console.log(err));
@@ -121,7 +121,7 @@ export class OrderComponent implements OnInit {
                         "Đà Lạt",
                         this.user.userInfo.firstName + " " + this.user.userInfo.lastName,
                         this.user.userInfo.phoneNumber,
-                        o.id);
+                        o);
                 else {
                     shipping = new Shipping(0,
                         this.totalPrice,
@@ -130,7 +130,7 @@ export class OrderComponent implements OnInit {
                         "Đà Lạt",
                         this.name,
                         this.telephone,
-                        o.id);
+                        o);
                 }
                 this.shippingService.createShipping(shipping).subscribe(p => { this.router.navigate(['/home']); },
                     err => console.log(err));

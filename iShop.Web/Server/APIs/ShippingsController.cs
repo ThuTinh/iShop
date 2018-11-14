@@ -86,7 +86,7 @@ namespace iShop.Web.Server.APIs
             var result = _mapper.Map<Shipping, ShippingResource>(shipping);
 
             _logger.LogMessage(LoggingEvents.Created, ApplicationConstants.ControllerName.Shipping, shipping.Id);
-            return CreatedAtRoute(ApplicationConstants.ControllerName.Shipping, new { id = shipping.Id }, result);
+            return Ok(shipping.Id);
         }
 
         // DELETE
@@ -136,6 +136,39 @@ namespace iShop.Web.Server.APIs
                 return NullOrEmpty();
 
             _mapper.Map(shippingResource, shipping);
+
+            if (!await _unitOfWork.CompleteAsync())
+            {
+                _logger.LogMessage(LoggingEvents.SavedFail, ApplicationConstants.ControllerName.Shipping, shipping.Id);
+                return FailedToSave(shipping.Id);
+            }
+
+            shipping = await _unitOfWork.ShippingRepository.GetShipping(shipping.Id);
+
+            var result = _mapper.Map<Shipping, ShippingResource>(shipping);
+            _logger.LogMessage(LoggingEvents.Updated, ApplicationConstants.ControllerName.Shipping, shipping.Id);
+            return Ok(result);
+        }
+
+
+        //[Authorize(Policy = ApplicationConstants.PolicyName.SuperUsers)]
+        [HttpPut("state/{id}")]
+        public async Task<IActionResult> ChangeStateShipping(string id)
+        {
+            bool isValid = Guid.TryParse(id, out var shippingId);
+           
+            if (!isValid)
+                return InvalidId(id);
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var shipping = await _unitOfWork.ShippingRepository.GetShipping(shippingId);
+
+            if (shipping == null)
+                return NullOrEmpty();
+
+            shipping.ShippingState = shipping.ShippingState==ShippingState.None? ShippingState.Shipped: ShippingState.None;
 
             if (!await _unitOfWork.CompleteAsync())
             {

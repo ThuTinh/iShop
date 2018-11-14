@@ -8,7 +8,7 @@
                  <label for="exampleInput" class="btn btn-primary">
                  Click me
                  </label>
-                 <input type="file" id="exampleInput" (change)="loadImage($event,itemProduct.id)" style="display: none" accept=".png,.jpg"/>
+                 <input type="file" id="exampleInput"  (change)="loadImage($event)" style="display: none" accept=".png,.jpg"/>
 <!--                 <input type="file" (change)="loadImage($event)" placeholder="Upload file" accept=".png,.jpg">-->
 
             
@@ -32,15 +32,6 @@
                                    [ngClass]="{'card-outline-danger': Title.errors?.required && (Title.touched ||f.submitted)}">
                         </div>
                         <div class="alert alert-danger" *ngIf="(Title.touched ||f.submitted) && Title.errors?.required"> *Bắt buộc* </div>
-                        
-
-                                 
-                                 
-                                 
-                                 
-                             
-                                 
-                                
                                    >
                   
                   
@@ -135,14 +126,10 @@
                     </div>
                     <div class="alert alert-danger"
                          *ngIf="(Supplier.touched ||f.submitted) && Supplier.errors?.required">*Bắt buộc*</div>
-
-                        
-                      
                     </div>
 
 
                     <div class="card p-2 mt-2 form-group ">
-
                         <input type="text" class="form-control  "
                                value={{itemProduct.summary}}
                                id="Summary"

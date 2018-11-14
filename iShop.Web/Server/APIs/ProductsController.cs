@@ -88,7 +88,7 @@ namespace iShop.Web.Server.APIs
         // PUT
         [Authorize(Policy = ApplicationConstants.PolicyName.SuperUsers)]
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(string id, [FromBody] SavedProductResource savedProductResource)
+        public async Task<IActionResult> Update(string id, [FromBody] SavedEditProductResource savedProductResource)
         {
             bool isValid = Guid.TryParse(id, out var productId);
             if (!isValid)
@@ -102,7 +102,7 @@ namespace iShop.Web.Server.APIs
             if (product == null)
                 return NotFound(productId);
 
-            _mapper.Map<SavedProductResource, Product>(savedProductResource, product);
+            _mapper.Map(savedProductResource, product);
 
             if (!await _unitOfWork.CompleteAsync())
             {

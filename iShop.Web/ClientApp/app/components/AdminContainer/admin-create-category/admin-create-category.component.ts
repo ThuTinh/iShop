@@ -1,4 +1,4 @@
-﻿import { Component, Output, EventEmitter, Input, OnInit } from "@angular/core";
+﻿import { Component, Output, EventEmitter, OnInit } from "@angular/core";
 
 import { CategoryService } from "../../../service/category.service";
 
@@ -12,9 +12,7 @@ import { Category } from "../../../model/Category";
 })
 export class AdminCreatecCategoryComponent implements OnInit {
     ngOnInit(): void {
-
         this.category.short = "-1";
-
     } 
 
  
@@ -31,7 +29,8 @@ export class AdminCreatecCategoryComponent implements OnInit {
         if ($event.valid) {
             let token = localStorage.getItem("token");
             token
-                ? this.categoryService.createCategories(this.category, token).subscribe(c => this.onclick.emit(true),err=> console.log(err)):alert("Bạn không đủ quyền vào mục này");
+                ? this.categoryService.createCategories(this.category, token)
+                    .subscribe(c => this.onclick.emit(true), err => console.log(err)) : alert("Bạn không đủ quyền vào mục này");
         }
     }
 

@@ -42,7 +42,7 @@ export class AdminEditcCategoryComponent implements OnInit {
      
             let token = localStorage.getItem("token");
             token
-                ? this.categoryService.deleteCategories(this.category.id, token)
+                ? this.categoryService.deleteCategories(this.category.id ? this.category.id:'', token)
                     .subscribe(c => this.onclick.emit(true), err => console.log(err)) : alert("Bạn không đủ quyền vào mục này");
         
     }

@@ -1,9 +1,7 @@
 ﻿import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
-//import { CookieService } from 'ngx-cookie-service';
-import { RequestOptions,Http } from '@angular/http';
 import { ProductService } from "../../../service/product.service";
-import { Product} from "../../../model/Product";
 import { Image } from '../../../model/Image';
+import { ProductEdit } from '../../../model/ProductEdit';
 
 
 @Component({
@@ -16,27 +14,22 @@ export class AdminEditProductComponent implements OnInit {
 
         let categories: string[] = [];
         this.product.categories.forEach((t: any) => categories.push(t.id));
-        console.log(this.product.supplierId);
-
-
-        this.itemProduct = new Product(
-//            this.itemProduct.id=this.product
-            categories,
+        this.itemProduct = new ProductEdit(
+        
             this.product.summary,
             this.product.price,
             this.product.sku,
             this.product.name,
-            this.product.supplierId,
             this.product.inventory.stock,
             this.product.expiredDate);
 
         this.itemProduct.id = this.product.id;
     }
-    itemProduct: Product = new Product();
+    itemProduct: ProductEdit = new ProductEdit();
     @Output() onclick = new EventEmitter<boolean>();
     @Input('product') product: any;
     minDate = new Date(2017, 5, 10);
-    maxDate = new Date(2018, 9, 15);
+    maxDate = new Date(2020, 9, 15);
     imageEdit?: Image;
   
 

@@ -31,7 +31,7 @@ namespace iShop.Web.Server.APIs
         }
 
         // GET
-        //[Authorize(Policy = ApplicationConstants.PolicyName.SuperUsers)]
+        [Authorize(Policy = ApplicationConstants.PolicyName.SuperUsers)]
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -104,12 +104,11 @@ namespace iShop.Web.Server.APIs
             }
 
             order = await _unitOfWork.OrderRepository.GetOrder(order.Id, false);
-            var result = (_mapper.Map<Order, OrderResource>(order));
+           
 
             _logger.LogMessage(LoggingEvents.Created, ApplicationConstants.ControllerName.Order, order.Id);
 
-            return CreatedAtRoute(ApplicationConstants.ControllerName.Order,
-                new { id = order.Id }, result);
+            return Ok(order.Id);
         }
 
         //PUT
@@ -148,6 +147,9 @@ namespace iShop.Web.Server.APIs
 
             return Ok(result);
         }
+
+
+
 
         // DELETE
         [HttpDelete("{id}")]

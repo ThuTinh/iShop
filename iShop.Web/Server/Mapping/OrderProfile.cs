@@ -17,7 +17,7 @@ namespace iShop.Web.Server.Mapping
 
             CreateMap<Order, OrderResource>()
                 .ForMember(or => or.OrderedItems, opt => opt.MapFrom(p =>
-                    p.OrderedItems.Select(pc => new OrderedItem() { ProductId = pc.ProductId, Quantity = pc.Quantity })))
+                    p.OrderedItems.Select(pc => new TitleOrderItemResource() { Product = pc.Product.Name, Quantity = pc.Quantity })))
                 .ForMember(or => or.Shipping, opt => opt.MapFrom(o => o.Shipping))
                 .ForMember(or => or.Invoice, opt => opt.MapFrom(o => o.Invoice));
 

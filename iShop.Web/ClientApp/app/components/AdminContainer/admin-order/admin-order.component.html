@@ -14,39 +14,29 @@
             </tr>
         </thead>
         <tbody>
-
-            <tr >
-                <th class=" text-center" scope="row">1</th>
+            <tr *ngFor="let order of orders; let i =index">
+                <th class=" text-center" scope="row">{{i+1}}</th>
                 <td class=" text-center">
-                   Vũ Khắc Hợi
+                    {{order.shipping.userName}}
                 </td>
-                <td  class="text-center">
-                    <p>Cải xanh : 10 cái </p>
-                   
+                <td class="text-center">
+                    <div *ngFor="let  item of order.orderedItems" class=" d-flex justify-content-between">
+                        <div>{{item.product}}</div>
+                        <div>{{item.quantity}}</div>
+                    </div>
                 </td>
-                <td class="text-center">1000<sup>đ</sup></td>
+                <td class="text-center">    {{order.shipping.charge}}<sup>đ</sup></td>
 
-                <td class="text-center">hkhajskhd</td>
-                <td class=" text-center">Đã giao hàng</td>
-                <td class=" text-center"><button class="btn btn-outline-success" >Xóa</button></td>
+                <td class="text-center">    {{order.shipping.ward}}     {{order.shipping.district}}     {{order.shipping.city}}</td>
+                <!--<td class=" text-center">    {{order.shipping.shippingState===0?'Chưa giao hàng':'Đã giao hàng'}}</td>-->
+                <td class="text-center">
+                    <label class="switch">
+                        <input type="checkbox" [checked]="order.shipping.shippingState===1" (change)="changeStateShipping(order.shipping.id)">
+                        <span class="slider round"></span>
+                    </label>
+                </td>
+                <td class=" text-center"><button class="btn btn-outline-success">Xóa</button></td>
             </tr>
-
         </tbody>
-        <tfoot>
-            <tr>
-                <th></th>
-                <td colspan="3"></td>
-                <td>Tổng cộng</td>
-                <td>
-                  hjhakshjkkhkhfa
-                </td>
-            </tr>
-
-
-
-          
-        </tfoot>
     </table>
-
-
 </div>

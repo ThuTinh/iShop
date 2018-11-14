@@ -1,15 +1,5 @@
-﻿
-
-
-<!--<slide-image></slide-image>-->
-
+﻿<!--<slide-image></slide-image>-->
 <!-- items being paged -->
-
-
-
-
-
-
 <div name="begin" class="card text-center" style="height: 45px;">
     <button class="btn btn-success" (click)="openModal(createCategory)">Thêm sản phẩm</button>
     <ng-template #createCategory>
@@ -17,10 +7,7 @@
             <button type="button" class="close float-right pt-2 mr-2 " aria-label="Close" (click)="modalRef.hide()">
                 <span aria-hidden="true">&times;</span>
             </button>
-
-
             <admin-create-category  (onclick)="exitDetail($event)" ></admin-create-category>
-
         </div>
     </ng-template>
 </div>

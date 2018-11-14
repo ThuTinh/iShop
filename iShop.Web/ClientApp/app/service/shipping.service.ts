@@ -12,13 +12,7 @@ export class ShippingService {
     constructor(private http: Http, @Inject('BASE_URL') baseUrl: string) {
         this.Url = baseUrl;
     }
-
-  
- 
      // get shoppingcart  with Id user
-   
-
-
     createShipping(shipping:Shipping) {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
@@ -27,8 +21,16 @@ export class ShippingService {
             .map(res => res.json(),
                 (err: any)=>console.log(err)
         );
-
     }
+    // change state for item shipping 
+    ChangeStateShipping(id:string) {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
 
+        return this.http.put(this.Url + 'api/shippings/state/' + id ,null, options)
+            .map(res => res.json(),
+                (err: any) => console.log(err)
+            );
+    }
 
 }

@@ -1,7 +1,8 @@
 ﻿import { Injectable, Inject } from '@angular/core';
-import { Http, RequestOptions, Headers } from '@angular/http';
+import { Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Product}  from "../model/Product";
+import { ProductEdit } from '../model/ProductEdit';
 
 
 @Injectable()
@@ -24,20 +25,12 @@ export class ProductService {
 
     }
 
-
-
-
-
     // update product 
-    editProduct(product: Product, token: string) {
-
-      
-        return this.http.put(this.Url + 'api/Products/'+product.id, product
-            ,
+    editProduct(product: ProductEdit, token: string) {
+        return this.http.put(this.Url + 'api/Products/'+product.id, product,
             ({
                 headers: {
                     //USE credentials mode
-
                     withCredentials: true,
                     'Authorization': 'Bearer ' + token
                 }
@@ -48,8 +41,6 @@ export class ProductService {
 
     //createProduct
     createProduct(product: Product, token: string) {
-       
-    
         return this.http.post(this.Url + 'api/Products/', product
                 ,
                 ({
@@ -61,6 +52,4 @@ export class ProductService {
                 }) as any)
             .map(res => res.json());
     }
-
-
 }

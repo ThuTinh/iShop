@@ -30,11 +30,31 @@ export class MoreProductComponent implements OnInit {
     // paged items
     pagedItems: any[]=[];
 
+
+    filterProduct(filter:String,items:any) {
+        filter = (filter + "").toLowerCase();
+        if (filter === "t" || filter === "o")
+            return items.filter((p:any, i: any, ps: any) => {
+                let categories = p.categories.filter((c: any) => c.short.toLowerCase().indexOf(filter) !== -1);
+
+                if (categories.length) return true;
+                return false;
+            });
+        return items.filter((p:any, i: any, ps: any) => {
+            let categories = p.categories.filter((c: any) => c.name.toLowerCase().indexOf(filter) !== -1);
+
+            if (categories.length) return true;
+            return false;
+        });
+    }
+
     ngOnInit() {
         this.productService.getProducts().subscribe(p => {
             // set items to json response
-            this.allItems = p;
+            //this.allItems = p;
             this.category = this.route.snapshot.paramMap.get('title');
+            this.allItems = this.filterProduct(this.category  + "", p);
+           
 
             // initialize to page 1
             this.setPage(1);
@@ -43,8 +63,8 @@ export class MoreProductComponent implements OnInit {
             
             this.productService.getProducts().subscribe(p => {
                 // set items to json response
-                this.allItems = p;
                 this.category = this.route.snapshot.paramMap.get('title');
+                this.allItems = this.filterProduct(this.category + "", p);
 
                 // initialize to page 1
                 this.setPage(1);
@@ -57,7 +77,6 @@ export class MoreProductComponent implements OnInit {
         if (page < 1 || page > this.pager.totalPages) {
             return;
         }
-
         // get pager object from service
         this.pager = this.pagerService.getPager(this.allItems.length, page);
 

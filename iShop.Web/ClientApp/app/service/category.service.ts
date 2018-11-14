@@ -18,7 +18,6 @@ export class CategoryService {
     getCategories() {
         return this.http.get(this.Url + 'api/Categories')
             .map(res => res.json());
-
     }
 
     //creaate

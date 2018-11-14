@@ -45,6 +45,9 @@
                     background-color: rgb(127, 180, 1);
                 }
 
+.dropdown  a{
+    padding: 14px 16px;
+}
 
 
 .search {

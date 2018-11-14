@@ -1,4 +1,5 @@
 ﻿import { Component } from '@angular/core';
+import { SharedService } from '../../service/shared-service';
 
 
 @Component({
@@ -7,7 +8,12 @@
     styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
+    constructor(private sharedService: SharedService) {
 
+    }
+    click() {
+        this.sharedService.emitChangeCategory(true);
+    }
 
 
 }

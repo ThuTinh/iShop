@@ -5,9 +5,9 @@ using iShop.Web.Server.Core.Resources;
 
 namespace iShop.Web.Server.Mapping
 {
-    public class ProductProfile: BaseProfile
+    public class ProductProfile : BaseProfile
     {
-   
+
 
         protected override void CreateMap()
         {
@@ -48,9 +48,13 @@ namespace iShop.Web.Server.Mapping
                 {
                     var inventory = new Inventory() { ProductId = pr.Id, SupplierId = pr.SupplierId, Stock = pr.Stock };
                     p.Inventory = inventory;
-                  
+
                 });
+            CreateMap<SavedEditProductResource, Product>();
+
+
 
         }
+
     }
 }
