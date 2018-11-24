@@ -10,10 +10,7 @@ export class SupplierService {
     constructor(private http: Http, @Inject('BASE_URL') baseUrl: string) {
         this.Url = baseUrl;
     }
-
-  
- 
-     // get Categories
+     // get supplier  with token active 
     getSuppliers(token:string) {
         return this.http.get(this.Url + 'api/Suppliers',
                 ({
@@ -25,9 +22,21 @@ export class SupplierService {
                 }) as any
         )
             .map(res => res.json());
-
     }
 
+
+    deleteSupplier(token: string, id:string) {
+        return this.http.delete(this.Url + 'api/Suppliers/'+id,
+            ({
+                headers: {
+                    //USE credentials mode
+                    withCredentials: true,
+                    'Authorization': 'Bearer ' + token
+                }
+            }) as any
+        )
+            .map(res => res.json());
+    }
 
     
       

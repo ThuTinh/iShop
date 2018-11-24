@@ -14,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let order of orders; let i =index">
+            <tr *ngFor="let order of orders |sort :'dec'; let i =index">
                 <th class=" text-center" scope="row">{{i+1}}</th>
                 <td class=" text-center">
                     {{order.shipping.userName}}
@@ -35,7 +35,9 @@
                         <span class="slider round"></span>
                     </label>
                 </td>
-                <td class=" text-center"><button class="btn btn-outline-success">Xóa</button></td>
+                <td class=" text-center">
+                    <button  class="btn btn-outline-success"  (click)="deleteOrder(order.id)" >Xóa</button>
+                </td>
             </tr>
         </tbody>
     </table>

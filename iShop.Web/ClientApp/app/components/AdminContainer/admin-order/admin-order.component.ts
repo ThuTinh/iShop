@@ -26,7 +26,7 @@ export class AdminOrderComponent implements OnInit {
         let token = localStorage.getItem("token");
         token ? this.orderService.getOrders(token).subscribe(o => {
             this.orders = o;
-            console.log(o);
+            console.log(o)
         }
         ) : alert("Bạn không đủ quyền truy cập vào mục này");
     }
@@ -34,12 +34,17 @@ export class AdminOrderComponent implements OnInit {
     changeStateShipping(id: string) {
         this.shippingService.ChangeStateShipping(id).subscribe(s => {
         },
-            err => alert(err))
+        err => alert(err))
     }
+
+    deleteOrder(id: string) {
+        let token = localStorage.getItem("token");
+        token ? this.orderService.deleteOrder(token, id).subscribe(() =>  alert("Xóa đơn hàng thành công") , err => console.log(err)) : alert('Bạn không đủ quyền xóa order này');
+    }
+
     exitDetail(isExit: boolean) {
         if (isExit) {
             this.modalRef.hide();
-
         }
     }
 

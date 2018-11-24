@@ -5,47 +5,19 @@
         <thead>
             <tr>
                 <th class=" text-center"></th>
-                <th class=" text-center">Người đặt</th>
-                <th class="text-center">Chi tiết đơn hàng</th>
-                <th class="text-center">Tổng giá</th>
-                <th class="text-center">Địa chỉ giao hàng</th>
-                <th class="text-center">Trạng thái</th>
-                <th class="text-center">Xóa</th>
+                <th class="text-center">Tên</th>
+                <th>Mô tả</th>
             </tr>
         </thead>
         <tbody>
-
-            <tr >
-                <th class=" text-center" scope="row">1</th>
-                <td class=" text-center">
-                   Vũ Khắc Hợi
-                </td>
-                <td  class="text-center">
-                    <p>Cải xanh : 10 cái </p>
-                   
-                </td>
-                <td class="text-center">1000<sup>đ</sup></td>
-
-                <td class="text-center">hkhajskhd</td>
-                <td class=" text-center">Đã giao hàng</td>
-                <td class=" text-center"><button class="btn btn-outline-success" >Xóa</button></td>
+            <tr *ngFor="let supplier of suppliers; let i =index">
+                <th class=" text-center" scope="row">{{i}}</th>
+                <td class=" text-center"> {{supplier.name}} </td>
+                <td>{{supplier.description}}</td>
             </tr>
 
         </tbody>
-        <tfoot>
-            <tr>
-                <th></th>
-                <td colspan="3"></td>
-                <td>Tổng cộng</td>
-                <td>
-                  hjhakshjkkhkhfa
-                </td>
-            </tr>
 
-
-
-          
-        </tfoot>
     </table>
 
 

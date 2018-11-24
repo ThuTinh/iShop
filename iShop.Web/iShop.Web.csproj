@@ -75,6 +75,7 @@
     <None Remove="ClientApp\app\components\custom-pipe\fill-pipe.ts" />
     <None Remove="ClientApp\app\components\custom-pipe\filter-category-pipe.ts" />
     <None Remove="ClientApp\app\components\custom-pipe\filter-pipe.ts" />
+    <None Remove="ClientApp\app\components\custom-pipe\sort-pipe.ts" />
     <None Remove="ClientApp\app\components\footer\footer.component.ts" />
     <None Remove="ClientApp\app\components\register\custom-validation.ts" />
     <None Remove="ClientApp\app\model\category.ts" />
@@ -91,15 +92,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Assets\" />
     <Folder Include="ClientApp\app\components\animation\" />
     <Folder Include="Server\Services\Commons\" />
     <Folder Include="Server\Services\Contracts\" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\css\slick-theme.css" />
+    <None Include="wwwroot\css\slick.css" />
+    <None Include="wwwroot\scripts\slick.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\components\custom-pipe\fill-pipe.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\custom-pipe\filter-category-pipe.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\custom-pipe\filter-pipe.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\custom-pipe\sort-pipe.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\footer\footer.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\register\custom-validation.ts" />
     <TypeScriptCompile Include="ClientApp\app\model\ProductEdit.ts" />

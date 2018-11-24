@@ -9,7 +9,6 @@ import * as _ from 'underscore';
 import { PagerService } from '../../../service/page.service';
 import { ProductService } from '../../../service/product.service';
 @Component({
-    
     selector: 'admin-product',
     templateUrl: './admin-product.component.html',
     styleUrls: ['./admin-product.component.css']

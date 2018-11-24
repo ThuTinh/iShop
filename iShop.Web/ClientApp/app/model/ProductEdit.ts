@@ -1,7 +1,7 @@
 ﻿
 
 export class ProductEdit {
-    id?: string;
+    id: string='';
     summary: string;
     expiredDate: Date;
     addedDate?: Date;

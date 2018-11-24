@@ -2,8 +2,7 @@
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { trigger, transition, state, animate, style } from '@angular/animations';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { ProductService } from '../../service/product.service';
+
 import { SharedService } from '../../service/shared-service';
 import { UserService } from '../../service/user.service';
 
@@ -74,9 +73,7 @@ export class NavMenuComponent implements OnInit {
     // show modal 
     modalRef: BsModalRef = new BsModalRef;
     constructor(private modalService: BsModalService,
-        private route: ActivatedRoute,
-        private router: Router,
-        private productService: ProductService,
+      
         private sharedService: SharedService,
         private userService: UserService,
     ) {

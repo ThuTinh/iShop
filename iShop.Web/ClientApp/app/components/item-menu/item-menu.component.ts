@@ -1,5 +1,5 @@
 import { Component,Input } from '@angular/core';
-import { trigger, transition, state, animate, style, keyframes, useAnimation, query, animateChild, group, stagger } from '@angular/animations';
+import { trigger, transition, animate, style, keyframes } from '@angular/animations';
 import { CategoryService } from '../../service/category.service';
 import { Category} from "../../model/Category";
 import { SharedService } from '../../service/shared-service';

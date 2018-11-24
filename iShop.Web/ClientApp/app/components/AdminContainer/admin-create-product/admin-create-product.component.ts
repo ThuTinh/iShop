@@ -1,6 +1,4 @@
-﻿import { Component, Output, EventEmitter, Input, OnInit } from "@angular/core";
-//import { CookieService } from 'ngx-cookie-service';
-import { RequestOptions, Http } from "@angular/http";
+﻿import { Component, Output, EventEmitter, OnInit } from "@angular/core";
 import { ProductService } from "../../../service/product.service";
 import { Product } from "../../../model/Product";
 import { Supplier } from "../../../model/Supplier";

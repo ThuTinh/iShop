@@ -37,7 +37,6 @@ export class OrderService {
                 orderItems.push(JSON.parse(String(localStorage.getItem(String(localStorage.key(i))))));
             }
         }
-        console.log(orderItems);
         let order: Order = new Order(userId, orderItems);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
@@ -59,5 +58,18 @@ export class OrderService {
 
     }
 
+    //delete order but not recommend use it function 
+    deleteOrder(token: string, id: string) {
+        return this.http.delete(this.Url + 'api/Orders/' + id,
+            ({
+                headers: {
+                    //USE credentials mode
+                    withCredentials: true,
+                    'Authorization': 'Bearer ' + token
+                }
+            }) as any
+        )
+            .map(res => res.json());
+    }
 
 }

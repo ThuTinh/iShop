@@ -1,8 +1,7 @@
 ﻿
 import { ProductService } from '../../service/product.service';
 import { Product } from "../../model/product";
-import { ChangeDetectorRef, TemplateRef, Component, OnInit,Input } from '@angular/core';
-import { BsModalService } from 'ngx-bootstrap/modal';
+import {  Component,Input } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 @Component({
     selector: 'list-product-random',

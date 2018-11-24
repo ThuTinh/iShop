@@ -1,14 +1,10 @@
 ﻿ 
 import { Component, OnInit,Input, TemplateRef } from '@angular/core';
-import * as _ from 'underscore';
-import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map'
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
-import { ProductService } from '../../../service/product.service';
-import { OrderService } from '../../../service/order.service';
-import { UserService } from '../../../service/user.service';
+import { SupplierService } from '../../../service/supplier.service';
 @Component({
     
     selector: 'admin-supplier',
@@ -17,31 +13,25 @@ import { UserService } from '../../../service/user.service';
 })
 export class AdminSupplierComponent implements OnInit {
     modalRef: BsModalRef = new BsModalRef;
-    orders:any[]=[];
+    suppliers:any[]=[];
     constructor(
-        private orderService: OrderService,
-        private route: ActivatedRoute,
-        private modalService: BsModalService,
-        private productService: ProductService,
-        private userService: UserService,
-     
+        private supplierService: SupplierService
     ) { }
    
    
 
     ngOnInit() {
         let token = localStorage.getItem("token");
-        token ? this.orderService.getOrders(token).subscribe(o => {
-                _.each(o,
-                    (os:any) => {
-                        if (os.userId) {
-//                            this.userService.
-                        }
-                    });
-            }
-            ): alert("Bạn không đủ quyền truy cập vào mục này");
+        token ? this.supplierService.getSuppliers(token).subscribe(s => this.suppliers = s)
+            : alert("Bạn không đủ quyền truy cập vào mục này");
     }
 
+
+    deleteSupplier(id:string) {
+        let token = localStorage.getItem("token");
+        token ? this.supplierService.deleteSupplier(token, id).subscribe(s => alert("Xóa thành công"))
+            : alert("Bạn không đủ quyền truy cập vào mục này");
+    }
 
     exitDetail(isExit: boolean) {
         if (isExit) {

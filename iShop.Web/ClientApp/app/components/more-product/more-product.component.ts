@@ -1,7 +1,6 @@
  
-import { Component, OnInit,Input } from '@angular/core';
-import { Http } from '@angular/http';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map'
 import { SharedService } from '../../service/shared-service';
 import * as _ from 'underscore';

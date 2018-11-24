@@ -65,6 +65,7 @@ import { EqualValidator } from './components/register/custom-validation';
 import { FilterPipe } from './components/custom-pipe/filter-pipe';
 import { FillPipe } from './components/custom-pipe/fill-pipe';
 import { FilterCategoryPipe } from './components/custom-pipe/filter-category-pipe';
+import { SortDecendingPipe } from './components/custom-pipe/sort-pipe';
 
 import { ToastrModule } from 'ngx-toastr';
 import { SlickModule } from 'ngx-slick';
@@ -95,7 +96,7 @@ import { SlickModule } from 'ngx-slick';
         FilterPipe,
         FillPipe,
         FilterCategoryPipe,
-       
+        SortDecendingPipe,
 
         // admin
         AdminComponent,
@@ -145,7 +146,7 @@ import { SlickModule } from 'ngx-slick';
                     { path: 'admin-product', component: AdminProductComponent, canActivate: [AdminAuthGuardService] },
                     { path: 'admin-category', component: AdminCategoryComponent, canActivate: [AdminAuthGuardService] },
                     { path: 'admin-order', component: AdminOrderComponent, canActivate: [AdminAuthGuardService] },
-                    { path: 'admin-supplier', component: AdminOrderComponent, canActivate: [AdminAuthGuardService] },
+                    { path: 'admin-supplier', component: AdminSupplierComponent, canActivate: [AdminAuthGuardService] },
                     { path: '**', redirectTo: 'dashbroad', canActivate: [AdminAuthGuardService] }
                 ]
             },
@@ -163,11 +164,6 @@ import { SlickModule } from 'ngx-slick';
                     { path: '**', redirectTo: 'home' }
                 ]
             }
-
-         
-             
-            //admin
-         
         ])
     ],
     providers: [
