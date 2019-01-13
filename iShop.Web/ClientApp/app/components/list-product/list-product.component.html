@@ -2,16 +2,11 @@
     <div class="card" style="height: 45px;">
         <div style="padding-left: 10px; font-size: 20px; font-weight: bold;">{{title}}</div>
         <button [routerLink]="['/more-product',name]" class="btn btn-primary" style=" position: absolute;  right: 0px; top: 2px; background-color: #65BC50; ">Xem tất cả</button>
-
     </div>
-
-    <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig" >
-        <div ngxSlickItem *ngFor="let item of products |filter:name "
+    <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+        <div ngxSlickItem *ngFor="let item of products"
              class="product">
             <card [product]="item"></card>
         </div>
     </ngx-slick>
-
-
-  
 </div>

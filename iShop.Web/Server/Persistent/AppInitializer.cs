@@ -59,7 +59,6 @@ namespace iShop.Web.Server.Persistent
                     Email = adminInfo.GetSection("Email").Value,
                 };
 
-
                 var createResult = _userManager
                     .CreateAsync(admin, adminInfo.GetSection("Password").Value).Result;
 
@@ -89,20 +88,15 @@ namespace iShop.Web.Server.Persistent
             //SAMPLE
 
 
-
-
-
-
-
             if (!_context.Categories.Any())
             {
                 var categories = new List<Category>()
                     {
-                        new Category() {Name = "Thịt Heo", Detail = "abcxyz"},
-                        new Category() {Name = "Thịt Bò", Detail = "abcxyz"},
-                        new Category() {Name = "Thịt Gà và Trứng", Detail = "abcxyz"},
-                        new Category() {Name = "Thủy Sản", Detail = "abcxyz"},
-                        new Category() {Name = "Hải Sản", Detail = "abcxyz"}
+                        new Category() {Name = "Thịt Heo", Detail = "abcxyz",Short="t"},
+                        new Category() {Name = "Thịt Bò", Detail = "abcxyz",Short="t"},
+                        new Category() {Name = "Thịt Gà và Trứng", Detail = "abcxyz",Short="t"},
+                        new Category() {Name = "Thủy Sản", Detail = "abcxyz",Short="o"},
+                        new Category() {Name = "Hải Sản", Detail = "abcxyz",Short="o"}
                     };
                 await _context.AddRangeAsync(categories);
                 await _context.SaveChangesAsync();
