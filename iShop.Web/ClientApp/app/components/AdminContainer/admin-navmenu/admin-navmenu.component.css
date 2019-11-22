@@ -11,13 +11,14 @@ ul {
 }
 
 
- ul li a {
-    display: block;
-  
-    padding: 14px 16px;
-    text-decoration: none;
-}
+    ul li a {
+        display: block;
+        padding: 14px 16px;
+        text-decoration: none;
+        color: #449D44;
+    }
 
 ul li a:hover {
     background-color: rgb(127, 180, 1);
+    
 }

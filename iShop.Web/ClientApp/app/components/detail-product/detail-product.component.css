@@ -18,3 +18,10 @@
     border-radius: 10px;
     opacity: 1
 }
+
+.btn-warning {
+    background-color: #cf3333
+}
+.card{
+    border: none !important
+}

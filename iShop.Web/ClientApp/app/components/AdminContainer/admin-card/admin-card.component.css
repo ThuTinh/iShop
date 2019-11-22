@@ -28,8 +28,9 @@
     position: absolute;
     top: 30%;
     left: 25%;
-    background-color: rgb(127, 180, 40);
-    z-index: 100
+    background-color: #cf3333;
+    z-index: 100;
+    color: white;
 }
 
 .bagDetail {
@@ -38,6 +39,7 @@
     background-color: rgb(127, 180, 40);
     width: 100%;
     z-index: 100;
+    color: white;
    opacity: 0.9;
 }
 

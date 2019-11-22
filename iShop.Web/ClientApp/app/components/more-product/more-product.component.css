@@ -1,0 +1,11 @@
+.background {
+    padding: 10px;
+    width: 250px;
+    background-color: #7FB428;
+    border-top-right-radius: 50px;
+    color: white
+}
+
+.card{
+    border: none !important;
+}

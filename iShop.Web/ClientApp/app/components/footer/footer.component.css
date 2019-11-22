@@ -11,9 +11,15 @@
     margin-top: 50px;
     display: inline-block;
     padding-bottom: 10px;
+    color: #eff669
 }
 
 
 .image-logo {
     height: 180px;
+}
+
+.badge-info {
+    background-color: #cf3333 !important;
+    color: #eff669 !important
 }

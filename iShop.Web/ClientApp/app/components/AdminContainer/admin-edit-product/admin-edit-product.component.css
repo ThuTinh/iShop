@@ -9,7 +9,9 @@
    }
 
 
-
+   .card{
+       border: none !important
+   }
 
    #container {
        background-color: white;

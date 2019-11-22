@@ -1,19 +1,19 @@
 ﻿<div   class="card parent " (mouseenter)="hovering()" (mouseleave)="leaving()"  (click)="openModal(detailproduct)" >
    <div >
     <img class="card-img-top w-100 " style="height: 250px;"  src="/images/{{product.images[0]?.fileName}}" alt="Card image cap">
-       <div class="card-body text-center mt-2" style="background-color:beige">
-           <h3  class="card-title mt-2">{{product.name}}</h3>
-           <rating [(ngModel)]="rate" [max]="5" [readonly]="'true'"></rating>
-           <h4 class="card-text pb-3">{{product.price}}</h4>
+       <div class="card-body text-center mt-2"  style="background-color:beige" >
+           <h4  class="card-title mt-2">{{product.name}}</h4>
+           <rating [(ngModel)]="rate" [max]="5" [readonly]="'true'" style="color:#f29f3d"></rating>
+           <h5 class="card-text pb-3">{{product.price}}</h5>
        </div>
    </div>
     <div *ngIf="isHover" class="card child">
     </div>
     <button   *ngIf="isHover && !add" @translate class="btn btnAddCart" (click)="addToCart()" >Thêm vào giỏ hàng</button>
     <div @translateBottom *ngIf="isHover && !add" class=" text-center  bagDetail" >
-        <h3  class="card-title mt-2">{{product.name}}</h3>
-        <rating [(ngModel)]="rate" [max]="5" [readonly]="'true'"></rating>
-        <h4 class="card-text pb-3">{{product.price}}</h4>
+        <h4  class="card-title mt-2">{{product.name}}</h4>
+        <rating [(ngModel)]="rate" [max]="5" [readonly]="'true'" style="color:#eff669"></rating>
+        <h5 class="card-text pb-3">{{product.price}}</h5>
     </div>
 </div>
 

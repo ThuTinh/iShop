@@ -10,5 +10,14 @@
     .product:first-child {
         margin-left: 0px;
     }
+.card {
+    border: none !important;
+}
 
-
+.background {
+    padding: 10px;
+    width: 250px;
+    background-color: #7FB428;
+    border-top-right-radius:50px;
+    color: white
+}

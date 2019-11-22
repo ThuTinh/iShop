@@ -14,5 +14,11 @@ tfoot tr td {
 .firstUpperCase {
     text-transform: capitalize;
 }
- 
+.btn-warning {
+    background-color: #cf3333
+}
 
+.card{
+    border: none !important
+
+}

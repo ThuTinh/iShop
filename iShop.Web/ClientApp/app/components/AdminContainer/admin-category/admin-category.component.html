@@ -15,7 +15,7 @@
 <div class="col card">
     <div class="row">
         <ng-container *ngFor="let c of categories ; let i=index">
-            <div class="col-4 mt-5 card" (click)="openModal(editProduct)" >
+            <div class="col-4 mt-5 card mr-2" (click)="openModal(editProduct)" >
                 <h3>{{c.name}}</h3>
                 <p>{{c.detail}}</p>
             </div>
